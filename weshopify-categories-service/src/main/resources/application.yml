@@ -1,0 +1,52 @@
+#
+# Common Configuration for all the environments
+#
+spring: 
+ application: 
+  name: weshopify-categories-service
+ jpa:    hibernate:      ddl-auto: update
+    show-sql: true
+ profiles: 
+   active: ${APP_PROFILE:dev}     
+   
+server: 
+ port: 5002
+ 
+weshopify: 
+ app: 
+  search: 
+   keys: ByEmail,ByMobile,ByUserName
+   
+logging:  file:    name: application.logs
+  level: 
+   root: INFO  pattern:    file: '%d{dd-MMM-yyyy HH:mm:ss,SSS} %-5level %logger{100}-%M-%L - %msg%n'
+  logback:    rollingpolicy:      max-file-size: 1GB
+      clean-history-on-start: true 
+file: 
+  storage: 
+    location: '${CATEGRIES_FILES_STORAGE:C:\Users\Parthasaradhi M\Downloads\trainigs_ws\LOCAL_FILE_STORAGE}'
+---
+#
+# Dev Environment Configurations
+#
+spring: 
+ profiles: dev
+ datasource: 
+  driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
+  url: jdbc:${DB_TYPE:mysql}://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:weshopify-categories-schema}
+  username: ${DB_USER_NAME:root} 
+  password: ${DB_USER_PWD:root}
+---
+#
+# QA Environment Configurations
+#
+spring: 
+ profiles: qa
+ h2:    console:      enabled: true
+      path: /h2Console
+ datasource: 
+  driver-class-name: ${DB_DRIVER:org.h2.Driver}
+  url: jdbc:${DB_TYPE:h2}:mem:${DB_SCHEMA:shopifyme}
+  username: ${DB_USER_NAME:sa}
+  password: ${DB_USER_NAME:sa}
+  

@@ -1,0 +1,10 @@
+com\weshopify\platform\WeshopifyCategoriesServiceApplication.class
+com\weshopify\platform\features\categories\bean\CategoryBean.class
+com\weshopify\platform\features\categories\service\CategoryService$1.class
+com\weshopify\platform\features\categories\domain\Category.class
+com\weshopify\platform\features\categories\domain\IdBasedEntity.class
+com\weshopify\platform\features\categories\exceptions\CategoryNotFoundException.class
+com\weshopify\platform\features\categories\resources\CategoryRestController.class
+com\weshopify\platform\features\categories\repo\CategoryRepository.class
+com\weshopify\platform\features\categories\bean\CategoryPageInfo.class
+com\weshopify\platform\features\categories\service\CategoryService.class
